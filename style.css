@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+                      
+    --color-white: #fff;
+    --color-background: #EFF3BF;
+    --color-primary: black;
+    --color-secondary: rgba(0, 0, 0, 0.6);
+    --color-hover: #df3f8c;
+    --shadow: 0 4px 44px 0 rgba(0, 0, 0, 0.25);
+
+    --fs-xs: clamp(0.75rem, 2vw, 0.875rem);
+    --fs-s: clamp(0.875rem, 2.5vw, 1rem);
+    --fs-base: clamp(1rem, 3vw, 1.125rem);
+    --fs-lg: clamp(1.125rem, 4vw, 1.5rem);
+    --fs-xl: clamp(1.5rem, 5vw, 2rem);
+
+    --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+    --spacing-s: clamp(0.5rem, 2vw, 1rem);
+    --spacing-base: clamp(1rem, 3vw, 1.5rem);
+    --spacing-lg: clamp(1.5rem, 4vw, 2rem);
+    --spacing-xl: clamp(2rem, 5vw, 23rem);
+
+    --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.15);
+    --shadow-button: 0 4px 15px rgba(223, 63, 140, 0.3);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+.main-container {
+    background-color: var(--color-white);
+    max-width: 510px;
+    width: 100%;
+    padding: 0 0 var(--spacing-xl) 0;
+    border-radius: 2rem;
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+}
+
+main {
+    padding: 60px var(--spacing-lg) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background: linear-gradient(135deg, #df3f8c 0%, #e863a1 100%);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-hover);
+    border-radius: 2rem;
+    max-width: 510px;
+    width: 100%;
+    height: 250px;
+}
+
+.design-profile-pic {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+}
+
+.design-profile-pic img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-white);
+    position: relative;
+    z-index: 6;
+    background-color: #f0f0f0;
+}
+
+.design-profile-pic::before,
+.design-profile-pic::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    animation: ripple 3s linear infinite;
+    pointer-events: none;
+}
+.design-profile-pic::after {
+    animation-delay: 1.5s;
+}
+
+.name {  
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+
+.personal-name{
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    color: var(--color-primary);
+    transition: var(--transition);
+    margin-top: -1rem;
+}
+
+.personal-name:hover {
+    color: var(--color-hover);
+    transform: translateY(-2px);
+}
+
+.name p{
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+.media-icons {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.media-icons img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+main p{ 
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.action-buttons button{
+    font-weight: 500;
+    font-size: var(--fs-s);
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    text-align: center;
+    padding: var(--fs-base) 4.5rem;
+    border-radius: 999px;
+}
+
+
+#follow-button{
+    background: #df3f8c;
+    color: var(--color-white);
+    border: none;
+    box-shadow: var(--shadow-button);
+}
+
+#follow-button:hover{
+    background: #d11b7a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(233, 30, 140, 0.3);
+    transition: var(--transition);
+}
+  
+#message-button{
+    background: var(--color-white);
+    color: #838383;
+    border: 1px solid #838383;
+}
+
+#message-button:hover{
+    transform: translateY(-3px);
+    transition: var(--transition);
+    box-shadow: 0px 6px 20px #717171;
+}
+
+@keyframes ripple {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+        border-width: 3px;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+@media (max-width: 360px) {
+    .media-icons {
+        gap: 16px;
+    }
+    .action-buttons {
+        gap: 16px;
+    }
+    .action-buttons button {
+        font-size: var(--fs-s);
+        padding: var(--fs-s) 2.5rem;
+    }
+    main p {
+        font-size: 1rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .media-icons {
+        gap: 16px;
+    }
+    .action-buttons {
+        gap: 16px;
+    }
+
+    .action-buttons button {
+        font-size: var(--fs-base);
+        padding: var(--fs-s) 3.5rem;
+    }
+}
+
